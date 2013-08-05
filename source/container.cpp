@@ -34,7 +34,7 @@ struct tokens: std::ctype<char>
         static cctype::mask rc[cctype::table_size];
         std::memcpy(rc, const_rc, cctype::table_size * sizeof(cctype::mask));
 
-        rc[' '] = std::ctype_base::print;
+        rc[static_cast<int>(' ')] = std::ctype_base::print;
         return &rc[0];
     }
 };
